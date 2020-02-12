@@ -37,7 +37,18 @@ need.
           <?php
             bloginfo('description');
           ?>
+
+          <?php
+            //Conditional logic
+            //if we are currently on a certain page
+            if(is_page("contact-us")){
+          ?>
+            - Thank you for viewing our work
+          <?php
+            }
+          ?>
         </h5>
+
         <nav class="site-nav">
           <!--We will use a WordPress function to make our navigation menu
             dynamically-->
