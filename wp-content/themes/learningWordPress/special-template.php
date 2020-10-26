@@ -20,8 +20,12 @@ if(have_posts()) :
 
     <!-- info box-->
     <div class="info-box">
-      <h4>Disclaimer title</h4>
-      <p>Dummy text only</p>
+      <h4>Quick note</h4>
+      <p>
+        Once upon a time I started programming.
+        I found programming to be very fun and enjoyed programming ever since.
+        Though it is difficult to find job as a newly graduate, I keep on trying.
+      </p>
     </div> <!-- /info-box -->
 
     <?php the_content(); ?>
