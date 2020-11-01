@@ -12,7 +12,7 @@ need.
     <!--Letting php decide the charset for us-->
     <meta charset="<?php bloginfo('charset');?>">
     <meta name="viewport" content="width=device-width">
-    <title><?php bloginfo('name')?></title>
+    <title><?php bloginfo('name');?></title>
     <!--
       What wp_head() does is that if we later on add different
       plugins to site or all sort of different things wordpress
@@ -20,14 +20,14 @@ need.
       In that way wordpress can add any other code that it automatically wants
       to add after the code we manually added
     -->
-    <?php wp_head() ?>
+    <?php wp_head(); ?>
   </head>
   <body <?php body_class(); ?>>
     <div class="container">
       <!-- site header -->
       <header class="site-header">
         <h1>
-          <a href="<?php echo home_url() //dynamically getting the home site name?>">
+          <a href="<?php echo home_url(); //dynamically getting the home site name?>">
             <?php
               bloginfo('name'); //name of our site
             ?>
