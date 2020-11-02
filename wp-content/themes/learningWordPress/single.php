@@ -45,8 +45,7 @@ if(have_posts()) :
     <!--<p class="post-info"><?php //the_time('m/d/y'); ?></p>-->
 
 
-    <?php //the_content('Read More &raquo;'); ?> <!-- the_content() function outputs the data within the post-->
-    <?php the_excerpt(); ?>
+    <?php the_content(); ?> <!-- the_content() function outputs the data within the post-->
   </article>
 <?php endwhile;
 else :

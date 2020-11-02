@@ -37,4 +37,21 @@ function has_children(){
   $pages = get_pages('child_of=' . $post->ID);
   return count($pages);
 }
+
+//Changing excerpt more
+function new_excerpt_more($more) {
+  global $post;
+  return '… <a href="'. get_permalink($post->ID) . '">' . 'Read More &raquo;' . '</a>';
+}
+//https://developer.wordpress.org/reference/functions/add_filter/
+//The 2nd param is a callback to be run when the filter is applied
+add_filter('excerpt_more', 'new_excerpt_more');
+
+//Customizing excerpt word count length
+function custom_excerpt_length(){
+  return 25;
+}
+add_filter('excerpt_length', 'custom_excerpt_length');
+
+
 ?>
