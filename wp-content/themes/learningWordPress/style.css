@@ -237,3 +237,18 @@ p.post-info a:link,
 p.post-info a:visited {
 	color: #999;
 }
+
+/* Targetting every image on the website */
+/*img {
+	max-width: 100px;
+}*/
+/*
+.has-thumbnail {
+	position: relative;
+	padding-left: 200px;
+}
+.post-thumbnail {
+	position: absolute;
+	top: 0;
+	left: 0;
+}*/

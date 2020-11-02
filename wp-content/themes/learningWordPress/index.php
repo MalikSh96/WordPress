@@ -10,7 +10,20 @@ get_header();
 
 if(have_posts()) :
   while(have_posts()) : /*do something with the posts*/ the_post(); ?>
-  <article class="post">
+  <article class="post <?php if(has_post_thumbnail()) { ?> has-thumbnail <?php } ?>">
+
+    <!--Post thumbnail-->
+    <div class="post-thumbnail">
+      <!--Featured image section-->
+      <a href="<?php the_permalink(); ?>">
+        <?php
+          the_post_thumbnail('small-thumbnail');
+        ?>
+      </a>
+    </div>
+    <!--Post thumbnail-->
+
+
     <h2>
       <a href="<?php the_permalink(); ?>">
         <?php the_title(); ?>
@@ -43,7 +56,6 @@ if(have_posts()) :
           ?>
     </p>
     <!--<p class="post-info"><?php //the_time('m/d/y'); ?></p>-->
-
 
     <?php //the_content('Read More &raquo;'); ?> <!-- the_content() function outputs the data within the post-->
     <?php the_excerpt(); ?>

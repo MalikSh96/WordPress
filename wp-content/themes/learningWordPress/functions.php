@@ -6,15 +6,6 @@ function learningWordPress_resources(){
 //we need to add the function so that it runs
 add_action('wp_enqueue_scripts', 'learningWordPress_resources');
 
-//We need to register those 2 new menu locations, so WordPress know they exist
-//Navigation menus
-//we will provide a few options via an array
-register_nav_menus(array(
-  'primary' => __('Primary Menu'), //primary is the short key word. Primay Menu is the actual formal name
-  'footer'  => __('Footer Menu'),
-));
-//^We should be able to control the menus from the admin WordPress screen, under -> appearance -> menus
-
 //Get top ancestor
 function get_top_ancestor_id(){
   //making the $post variable available within this function
@@ -52,6 +43,25 @@ function custom_excerpt_length(){
   return 25;
 }
 add_filter('excerpt_length', 'custom_excerpt_length');
+
+//Our theme setup
+//Anytime you add support to your theme, you should do it in the below function
+function learningWordPress_setup(){
+  //We need to register those 2 new menu locations, so WordPress know they exist
+  //Navigation menus
+  //we will provide a few options via an array
+  register_nav_menus(array(
+    'primary' => __('Primary Menu'), //primary is the short key word. Primay Menu is the actual formal name
+    'footer'  => __('Footer Menu'),
+  ));
+  //^We should be able to control the menus from the admin WordPress screen, under -> appearance -> menus
+
+  //Add featured image support
+  add_theme_support('post-thumbnails');
+  add_image_size('small-thumbnail', 180, 120, true);
+  add_image_size('banner-image', 920, 210, array('left', 'top')); //we use an array to specify what directional portion we want to crop
+}
+add_action('after_setup_theme', 'learningWordPress_setup');
 
 
 ?>
