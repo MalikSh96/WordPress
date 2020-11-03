@@ -26,6 +26,16 @@ need.
     <div class="container">
       <!-- site header -->
       <header class="site-header">
+
+        <!--Search bar functionality-->
+        <div class="hd-search">
+          <?php
+            get_search_form();
+          ?>
+        </div>
+        <!--Search bar functionality-->
+
+
         <h1>
           <a href="<?php echo home_url(); //dynamically getting the home site name?>">
             <?php
