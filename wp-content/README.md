@@ -28,3 +28,24 @@ If you don't have a custom file as our searchform.php WordPress will fall back t
 
 WordPress will automatically look in our theme folder for a file named search.php to output the search results, if you don't have
 a search.php WordPress will fall back and use index.php to output the search results.
+
+# Keeping your code D-R-Y
+Don't Repeat Yourself (coding wise).
+
+In terms of how the webpage is displayed there is a similiarity on how items are outputted on the webpage, they are
+all outputting the same.
+There is no need to have all that code repeated in our theme files.
+
+get_template_part() is an inbuild function which allows the code to be D-R-Y.
+
+get_template_part() --> https://developer.wordpress.org/reference/functions/get_template_part/
+
+For this part we modified our index.php and created a new file content.php which now contains the content we have
+that used to be in our index.php, archive.php, search.php and etc.
+
+get_template_part('content'); <-- this can now be a reused in other theme files.
+
+get_template_part('content'); makes WordPress look for our content.php file in the theme folder.
+
+With content.php all of our theme design code is in one central place and is not repeated throughout our theme files.
+Now if changes need to happen you will only need to change in one file instead of jumping from one file to another and so on.
