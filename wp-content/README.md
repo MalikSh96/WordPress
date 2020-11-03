@@ -2,6 +2,7 @@
 
 If you are building a theme for a "real" world project and your client is very particular about your form looking very identical
 in many different browsers.
+
 Then perform a web search for something called formalize or css normalize/reset, which will provide you some css code you can use which
 will level your playing field across all browsers and devices.
 
