@@ -22,6 +22,8 @@ A featured image is a separate field from the main text of your post/page, which
 
 # WordPress Search functionality
 WordPress has an in built search form such as get_search_form().
+
 If you don't have a custom file as our searchform.php WordPress will fall back to its default serach form code.
+
 WordPress will automatically look in our theme folder for a file named search.php to output the search results, if you don't have
 a search.php WordPress will fall back and use index.php to output the search results.
