@@ -60,6 +60,9 @@ function learningWordPress_setup(){
   add_theme_support('post-thumbnails');
   add_image_size('small-thumbnail', 180, 120, true);
   add_image_size('banner-image', 920, 210, array('left', 'top')); //we use an array to specify what directional portion we want to crop
+
+  //Add Post Format support
+  add_theme_support('post-formats', array('aside', 'gallery', 'link')); //The 2nd param we can specify which of the nine post formats we want to support
 }
 add_action('after_setup_theme', 'learningWordPress_setup');
 

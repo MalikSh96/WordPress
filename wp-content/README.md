@@ -49,3 +49,25 @@ get_template_part('content'); makes WordPress look for our content.php file in t
 
 With content.php all of our theme design code is in one central place and is not repeated throughout our theme files.
 Now if changes need to happen you will only need to change in one file instead of jumping from one file to another and so on.
+
+# Post format feature
+Typically when working on a website you wanna post different types, such as a status update (quick blurp of text)
+that does not need a title, or perhaps a link to an external website and you want that link, or post, to be styled
+differently from the other content on the webpage.
+
+In short, the general idea is that if you are posting different types of content your theme should have different type of presentation
+to match that type of content, and this is where that Post Formats comes into play.
+
+The team of developers who created the core WordPress software have put together a standardized list of nine post formats:
+
+- aside
+- gallery
+- link
+- image
+- quote
+- status
+- video
+- audio
+- chat
+
+Post Formats is a ***theme*** feature. 

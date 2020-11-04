@@ -10,7 +10,12 @@ get_header();
 
 if(have_posts()) :
   while(have_posts()) : /*do something with the posts*/ the_post();
-    get_template_part('content');
+    /*
+    Info: get_template_part('content', get_post_format());
+    The 1st param which ^ tries to get is our content.php file.
+    The 2nd param which ^^ it tries to get is our content-aside.php file from our theme folder.
+    */
+    get_template_part('content', get_post_format()); //<--responsible for how the webpage is displayed
   endwhile;
 else :
   echo '<p>No content found</p>';
