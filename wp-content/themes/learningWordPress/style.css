@@ -162,6 +162,68 @@ article.post-gallery h2 {
 	color: #FFF;
 }
 
+/* Main Column */
+.main-column {
+	width: 66%;
+	float: left;
+}
+
+/* Side Column */
+.secondary-column {
+	width: 30%;
+	float: right;
+}
+
+.side-column .widget-item {
+	border-bottom: 1px solid #DDD;
+	padding-bottom: 20px;
+	margin-bottom: 20px;
+}
+
+h2.widget-title {
+	font-weight: normal;
+	margin-bottom: 10px;
+	color: #888;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	font-size: 138%;
+}
+
+.widget-item ul {
+	margin: 0;
+	padding: 0;
+}
+
+.widget-item ul li {
+	list-style-position: inside;
+	line-height: 1.65em;
+}
+
+.widget-item p:last-child {
+	margin: 0;
+}
+
+/* Footer Widget Areas */
+.footer-widgets {
+	padding-top: 40px;
+	margin-right: -40px;
+}
+
+.footer-widget-area {
+	width: 25%;
+	float: left;
+	box-sizing: border-box;
+	padding-right: 40px;
+}
+
+/* Footer Widget Area */
+.footer-widget-area {
+		width: 25%;
+		float: left;
+		padding-right: 40px;
+		box-sizing: border-box;
+}
+
 /* Footer */
 .site-footer {
 	margin-top: 30px;

@@ -66,5 +66,50 @@ function learningWordPress_setup(){
 }
 add_action('after_setup_theme', 'learningWordPress_setup');
 
+//Adding widget section to our appearance menu in WordPress admin dashboard, widget locations
+function ourWidgetsInit(){
+  register_sidebar(array(
+    'name' => 'Sidebar', //end-users can see this name, hence human "friendly" name
+    'id' => 'sidebar1', //end-users can't see this name, hence does not need "friendly" name but computer friendly
+    'before_widget' => '<div class="widget-item">',
+		'after_widget' => '</div>',
+		'before_title' => '<h2 class="widget-title">',
+		'after_title' => '</h2>',
+  ));
+  //Adding more sidebars
+  register_sidebar(array(
+    'name' => 'Footer Area 1', //end-users can see this name, hence human "friendly" name
+    'id' => 'footer1', //end-users can't see this name, hence does not need "friendly" name but computer friendly
+    'before_widget' => '<div class="widget-item">',
+		'after_widget' => '</div>',
+		'before_title' => '<h2 class="widget-title">',
+		'after_title' => '</h2>',
+  ));
+  register_sidebar(array(
+    'name' => 'Footer Area 2', //end-users can see this name, hence human "friendly" name
+    'id' => 'footer2', //end-users can't see this name, hence does not need "friendly" name but computer friendly
+    'before_widget' => '<div class="widget-item">',
+		'after_widget' => '</div>',
+		'before_title' => '<h2 class="widget-title">',
+		'after_title' => '</h2>',
+  ));
+  register_sidebar(array(
+    'name' => 'Footer Area 3', //end-users can see this name, hence human "friendly" name
+    'id' => 'footer3', //end-users can't see this name, hence does not need "friendly" name but computer friendly
+    'before_widget' => '<div class="widget-item">',
+		'after_widget' => '</div>',
+		'before_title' => '<h2 class="widget-title">',
+		'after_title' => '</h2>',
+  ));
+  register_sidebar(array(
+    'name' => 'Footer Area 4', //end-users can see this name, hence human "friendly" name
+    'id' => 'footer4', //end-users can't see this name, hence does not need "friendly" name but computer friendly
+    'before_widget' => '<div class="widget-item">',
+		'after_widget' => '</div>',
+		'before_title' => '<h2 class="widget-title">',
+		'after_title' => '</h2>',
+  ));
+}
+add_action('widgets_init', 'ourWidgetsInit');
 
 ?>

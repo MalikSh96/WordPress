@@ -1,3 +1,6 @@
+# Tutorial link:
+https://www.youtube.com/watch?v=8OBfr46Y0cQ&list=PLpcSpRrAaOaqMA4RdhSnnNcaqOVpX7qi5&ab_channel=LearnWebCode
+
 # Just a bit of theory
 
 If you are building a theme for a "real" world project and your client is very particular about your form looking very identical
@@ -70,4 +73,16 @@ The team of developers who created the core WordPress software have put together
 - audio
 - chat
 
-Post Formats is a ***theme*** feature. 
+Post Formats is a ***theme*** feature.
+
+# WordPress widgets
+A widget is simply a self contained chunk of content that usually has a very specific purpose that gets displayed on a website.
+
+For example a lot of websites have a sidebar, and in that side bar you may see an area named "xxx" and a list of links, that is a "xxx"-widget.
+
+The great thing about WordPress is that you can add widget locations wherever you want very easily.
+
+By default WordPress treats widget areas as a giant unordered list.
+
+# Functions.php
+Whenever we are enabling a feature or making something dynamic we will use this file, function.php.
