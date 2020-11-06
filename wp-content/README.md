@@ -86,3 +86,6 @@ By default WordPress treats widget areas as a giant unordered list.
 
 # Functions.php
 Whenever we are enabling a feature or making something dynamic we will use this file, function.php.
+
+# Setting up custom/static homepage
+The real magic of WordPress unlocks when themes combine static html and custom css with dynamic WordPress queries.
