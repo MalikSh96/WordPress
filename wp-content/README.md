@@ -92,11 +92,13 @@ Learning to take control f what is being fed to "the loop", loop through any set
 
 The empty skeleton of the WordPress loop looks as follows.
 
-`if(have_posts()) :
+```
+if(have_posts()) :
   while(have_posts()) : the_post;
     //output content however we please here
   endwhile;
 
   else :
   //fallback no content message here
- endif;`
+ endif;
+ ```
