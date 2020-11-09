@@ -94,7 +94,7 @@ The empty skeleton of the WordPress loop looks as follows.
 
 ```
 if(have_posts()) :
-  while(have_posts()) : the_post;
+  while(have_posts()) : the_post();
     //output content however we please here
   endwhile;
 
@@ -102,3 +102,12 @@ if(have_posts()) :
   //fallback no content message here
  endif;
  ```
+
+ The reason why the loop is good as theme creators is because it gives you 100% complete control over how you format or
+ output your post.
+
+ By default the current url or permalink that you are currently viewing on your website determines which post gets looped through.
+
+ By default WordPress will order its query results by date.
+
+ Read more about -> [WP_Query](https://developer.wordpress.org/reference/classes/wp_query/) 
