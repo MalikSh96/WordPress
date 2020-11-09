@@ -61,7 +61,7 @@
           as it is relinquishing control of the global post variable, which then gives control
           back to WordPress and does not anylonger disrupt the url based queries, wp_reset_postdata resets the data*/
           ?>
-          <span class="horiz-center"><a href="<?php echo get_category_link(7); ?>" class="btn-a">View all Shows Posts</a></span>
+          <span class="horiz-center"><a href="<?php echo get_category_link(4); ?>" class="btn-a">View all Shows Posts</a></span>
         </div>
         <!--one half-->
 
