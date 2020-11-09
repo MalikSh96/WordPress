@@ -40,7 +40,7 @@ There is no need to have all that code repeated in our theme files.
 
 get_template_part() is an inbuild function which allows the code to be D-R-Y.
 
-[get_template_part()](https://developer.wordpress.org/reference/functions/get_template_part/)
+Read more about -> [get_template_part()](https://developer.wordpress.org/reference/functions/get_template_part/)
 
 For this part we modified our index.php and created a new file content.php which now contains the content we have
 that used to be in our index.php, archive.php, search.php and etc.
