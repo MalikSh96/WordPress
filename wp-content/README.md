@@ -1,5 +1,5 @@
 # Tutorial link:
-https://www.youtube.com/watch?v=8OBfr46Y0cQ&list=PLpcSpRrAaOaqMA4RdhSnnNcaqOVpX7qi5&ab_channel=LearnWebCode
+[Link](https://www.youtube.com/watch?v=8OBfr46Y0cQ&list=PLpcSpRrAaOaqMA4RdhSnnNcaqOVpX7qi5&ab_channel=LearnWebCode)
 
 # Just a bit of theory
 
@@ -11,8 +11,7 @@ will level your playing field across all browsers and devices.
 
 # About the different functions that gets used in this project
 A lot, if not all, of the functions used in this project are inbuild functions from WordPress.
-To know what they exactly do or if you need more theory about them visit the official WordPress website.
-https://developer.wordpress.org/reference/
+To know what they exactly do or if you need more theory about them visit the [official WordPress website](https://developer.wordpress.org/reference/)
 
 # About featured images
 A featured image is a single image that we choose to represent a post or a page,
@@ -41,7 +40,7 @@ There is no need to have all that code repeated in our theme files.
 
 get_template_part() is an inbuild function which allows the code to be D-R-Y.
 
-get_template_part() --> https://developer.wordpress.org/reference/functions/get_template_part/
+[get_template_part()](https://developer.wordpress.org/reference/functions/get_template_part/)
 
 For this part we modified our index.php and created a new file content.php which now contains the content we have
 that used to be in our index.php, archive.php, search.php and etc.
@@ -110,4 +109,4 @@ if(have_posts()) :
 
  By default WordPress will order its query results by date.
 
- Read more about -> [WP_Query](https://developer.wordpress.org/reference/classes/wp_query/) 
+ Read more about -> [WP_Query](https://developer.wordpress.org/reference/classes/wp_query/)
