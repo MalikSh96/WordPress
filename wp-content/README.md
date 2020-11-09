@@ -86,3 +86,17 @@ By default WordPress treats widget areas as a giant unordered list.
 
 # Functions.php
 Whenever we are enabling a feature or making something dynamic we will use this file, function.php.
+
+# WP_Query
+Learning to take control f what is being fed to "the loop", loop through any set of posts at any time in any theme file.
+
+The empty skeleton of the WordPress loop looks as follows.
+
+`if(have_posts()) :
+  while(have_posts()) : the_post;
+    //output content however we please here
+  endwhile;
+
+  else :
+  //fallback no content message here
+ endif;`
