@@ -112,4 +112,86 @@ function ourWidgetsInit(){
 }
 add_action('widgets_init', 'ourWidgetsInit');
 
+//Customize Appearance Options
+function learningWordPress_customize_register($wp_customize){
+  //To create a setting
+  $wp_customize->add_setting('lwp_link_color', array(
+    'default' => '#006ec3',
+    'transport' => 'refresh', //the transport property controls how WordPress will update the preview of your website when you are on the 'customize' screen
+  ));
+
+  $wp_customize->add_setting('lwp_btn_color', array(
+    'default' => '#006ec3',
+    'transport' => 'refresh', //the transport property controls how WordPress will update the preview of your website when you are on the 'customize' screen
+  ));
+
+  $wp_customize->add_setting('lwp_hover_color', array(
+    'default' => '#004C87',
+    'transport' => 'refresh', //the transport property controls how WordPress will update the preview of your website when you are on the 'customize' screen
+  ));
+
+  //To create a section
+  $wp_customize->add_section('lwp_standard_colors', array(
+    'title' => __('Standard Colors', 'LearningWordPress'), //__ <-- is a WordPress translation/localization feature, also 'title' is the onscreen text for a user, hence human friendly name
+    'priority' => 30,
+  ));
+  //To create a control
+  $wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'lwp_link_color_control', array(
+    'label' => __('Link Color', 'LearningWordPress'), //'label' is a human friendly name as the user sees that
+    'section' => 'lwp_standard_colors',
+    'settings' => 'lwp_link_color',
+  )));
+
+  $wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'lwp_btn_color_control', array(
+    'label' => __('Button Color', 'LearningWordPress'), //'label' is a human friendly name as the user sees that
+    'section' => 'lwp_standard_colors',
+    'settings' => 'lwp_btn_color',
+  )));
+
+  $wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'lwp_hover_color_control', array(
+    'label' => __('Hover Color', 'LearningWordPress'), //'label' is a human friendly name as the user sees that
+    'section' => 'lwp_standard_colors',
+    'settings' => 'lwp_hover_color',
+  )));
+}
+add_action('customize_register', 'learningWordPress_customize_register');
+
+//Output Customize CSS
+function learningWordPress_customize_css(){
+  //Purpose of this function is solely to output css with the new color codes
+  ?>
+  <style type="text/css">
+    a:link,
+    a:visited {
+      <?php
+      /*Instead of including the usual hexadecimal colorcode, we will be making it output dynamic
+      colorcode, and this is where your 'settings' will be coming in.
+      So when a user chooses a color from the colorpicker control (wordpress dashboard) their
+      choice, the colorvalue gets saved into the database with your 'settings' name.
+
+      About get_theme_mod() -> //https://developer.wordpress.org/reference/functions/get_theme_mod/*/ ?>
+      color: <?php echo get_theme_mod('lwp_link_color'); ?>
+    }
+
+    .site-header nav ul li.current-menu-item a:link,
+    .site-header nav ul li.current-menu-item a:visited,
+    .site-header nav ul li.current-page-ancestor a:link,
+    .site-header nav ul li.current-page-ancestor a:visited {
+      background-color: <?php echo get_theme_mod('lwp_link_color'); ?>
+    }
+
+    .btn-a,
+    .btn-a:link,
+    .btn-a:visited,
+    div.hd-search #searchsubmit {
+      background-color: <?php echo get_theme_mod('lwp_btn_color'); ?>
+    }
+
+    .btn-a:hover {
+      background-color: <?php echo get_theme_mod('lwp_hover_color'); ?>
+    }
+  </style>
+  <?php
+}
+add_action('wp_head', 'learningWordPress_customize_css');
 ?>

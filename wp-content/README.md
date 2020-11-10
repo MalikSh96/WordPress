@@ -110,3 +110,74 @@ if(have_posts()) :
  By default WordPress will order its query results by date.
 
  Read more about -> [WP_Query](https://developer.wordpress.org/reference/classes/wp_query/)
+
+ # Customized theme
+ Everything being done for this is dependent on a WordPress object named `$wp_customize`.
+
+ In `functions.php` we will create a function named `learningWordPress_customize_register('$wp_customize')` which
+ takes `$wp_customize` as an argument.
+
+ You need to be familiar with 3 sections:
+
+ 1. Controls (UI)
+ 2. Settings (Database)
+ 3. Sections (Group)
+
+ The **Controls** is the form element that users actually interact with.
+
+ The **Settings** is how you save the users choice, you can *set* or *save* a value into a setting and later *get*
+ or *load* value from a setting.
+
+ The **Sections** is a group of options.
+
+ ```
+ //Customize Appearance Options
+ function learningWordPress_customize_register($wp_customize){
+   //To create a settings
+   $wp_customize->add_setting('lwp_link_color', array(
+     'default' => '#006ec3',
+     'transport' => 'refresh',
+   ));
+   //To create a section
+   $wp_customize->add_section('lwp_standard_colors', array(
+     'title' => __('Standard Colors', 'LearningWordPress'),
+     'priority' => 30,
+   ));
+   //To create a control
+   $wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'lwp_link_color_control', array(
+     'label' => __('Link Color', 'LearningWordPress'),
+     'section' => 'lwp_standard_colors',
+     'settings' => 'lwp_link_color',
+   )));
+ }
+ add_action('customize_register', 'learningWordPress_customize_register');
+
+ ```
+
+ The name of our function is `learningWordPress_customize_register()` and this takes `$wp_customize` as an argument.
+
+ To create your **Settings** you use `$wp_customize` and its inbuild WordPress function `add_setting()` and give that a name
+ which in this case is `lwp_link_color` and an array which takes the parameters needed.
+
+ The `transport` property controls how WordPress will update the preview of your website when you are on the *customize* screen.
+
+ Next to create a **Sections** you again use `$wp_customize` and its inbuild WordPress function `add_section()` and do what you did
+ with the `add_setting()` function.
+
+ The `'title'` is a UI which means that the users will be seeing that, therefore it should get a friendly user name.
+
+ The `__()` is a WordPress translation/localization feature.
+
+ Lastly you create **Controls** by using `$wp_customize` and its inbuild WordPress function `add_control()` and give
+ that a `'label'` which is also an UI and needs a friendly user name, and give it your `'section'` and `'settings'` that you created.
+
+ The different names given to the 3 of them `lwp_link_color`, `lwp_standard_colors` and `lwp_link_color_control` - *lwp* being
+ short for *learning WordPress*.
+
+ Read more about the functions being used here:
+ - [$wp_customize->add_setting()](https://developer.wordpress.org/reference/classes/wp_customize_manager/add_setting/)
+ - [$wp_customize->add_section()](https://developer.wordpress.org/reference/classes/wp_customize_manager/add_section/)
+ - [$wp_customize->add_control()](https://developer.wordpress.org/reference/classes/wp_customize_manager/add_control/)
+ - [Customizer objects](https://developer.wordpress.org/themes/customize-api/customizer-objects/)
+ - [__()](https://developer.wordpress.org/reference/functions/__/)
+ - [add_action()](https://developer.wordpress.org/reference/functions/add_action/)
