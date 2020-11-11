@@ -181,3 +181,7 @@ if(have_posts()) :
  - [Customizer objects](https://developer.wordpress.org/themes/customize-api/customizer-objects/)
  - [__()](https://developer.wordpress.org/reference/functions/__/)
  - [add_action()](https://developer.wordpress.org/reference/functions/add_action/)
+ - [WP_Customize_Control()](https://developer.wordpress.org/reference/classes/wp_customize_control/)
+ - [WP_Customize_Cropped_Image_Control()](https://developer.wordpress.org/reference/classes/wp_customize_cropped_image_control/)
+ - [wpautop()](https://developer.wordpress.org/reference/functions/wpautop/)
+ - [wp_get_attachment_url()](https://developer.wordpress.org/reference/functions/wp_get_attachment_url/)

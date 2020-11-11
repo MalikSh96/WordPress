@@ -1,4 +1,27 @@
   <footer class="site-footer">
+
+  <?php if(get_theme_mod('lwp-footer-callout-display') == 'Yes') { ?>
+    <div class="footer-callout clearfix">
+      <div class="footer-callout-image">
+        <a href="<?php echo get_permalink(get_theme_mod('lwp-footer-callout-link')) ?>">
+          <img src="<?php echo wp_get_attachment_url(get_theme_mod('lwp-footer-callout-image')); ?>">
+        </a>
+      </div>
+      <div class="footer-callout-text">
+        <h2>
+          <a href="<?php echo get_permalink(get_theme_mod('lwp-footer-callout-link')); ?>">
+            <?php echo get_theme_mod('lwp-footer-callout-headline'); ?>
+          </a>
+        </h2>
+        <?php echo wpautop(get_theme_mod('lwp-footer-callout-text')); ?>
+        <p>
+          <a href="<?php echo get_permalink(get_theme_mod('lwp-footer-callout-link')) ?>">
+            <strong>Learn more &raquo;</strong>
+          </a>
+        </p>
+      </div>
+    </div>
+  <?php } ?>
     <!--footer widgets-->
     <div class="footer-widgets clearfix">
         <!--Optimized the condition for if a footer is active or not by using

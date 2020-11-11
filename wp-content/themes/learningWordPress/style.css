@@ -465,3 +465,49 @@ div.hd-search #s {
 	vertical-align: top;
 	padding: 3px 0;
 }
+
+/* Footer Callout Section */
+.footer-callout {
+	background-color: #DDD;
+	padding: 20px;
+	margin: 30px 0 0 0;
+}
+
+.footer-callout-image {
+	float: left;
+	width: 30%;
+	overflow: hidden;
+}
+
+.footer-callout-image img {
+	transition: all .45s ease-out;
+}
+
+.footer-callout-image img:hover {
+	opacity: .8;
+	transform: scale(1.25) rotate(5deg);
+}
+
+
+.footer-callout-text {
+	float: right;
+	width: 67%;
+}
+
+.footer-callout-text h2 {
+	font-size: 1.7rem;
+	margin: 0 0 .35rem 0;
+}
+
+.footer-callout-text h2 a {
+	color: #333;
+	text-decoration: none;
+}
+
+.footer-callout-text h2 a:hover {
+	text-decoration: underline;
+}
+
+.footer-callout-text p {
+	font-size: .9rem;
+}
