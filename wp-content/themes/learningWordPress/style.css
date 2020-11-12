@@ -255,7 +255,7 @@ article.post-gallery h2 {
 }
 
 /* Side Column */
-.secondary-column {
+.side-column {
 	width: 30%;
 	float: right;
 }
@@ -510,4 +510,65 @@ div.hd-search #s {
 
 .footer-callout-text p {
 	font-size: .9rem;
+}
+
+/* About the Author section */
+.about-author {
+	background-color: #EDEDED;
+	padding: 20px;
+}
+
+.about-author-image {
+	float: left;
+	width: 28%;
+	position: relative;
+}
+
+.about-author-image img {
+	display: block;
+}
+
+.about-author-image p {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	background-color: rgba(0, 0, 0, .5);
+	padding: 4px 0;
+	text-align: center;
+	font-weight: bold;
+	text-shadow: 1px 1px 1px rgba(0, 0, 0, .85);
+	color: #FFF;
+	margin: 0;
+}
+
+.about-author-text {
+	float: right;
+	width: 68%;
+}
+
+.other-posts-by {
+	background-color: #FFF;
+	padding: 15px;
+	border-radius: 4px;
+}
+
+.other-posts-by ul {
+	margin: 0;
+	padding: 0;
+}
+
+.other-posts-by li {
+	list-style: none;
+	border-bottom: 1px dotted #DDD;
+}
+
+.other-posts-by li:last-child {
+	border-bottom: none;
+}
+
+.other-posts-by a {
+	text-decoration: none;
+	display: block;
+	padding: 3px 0;
 }

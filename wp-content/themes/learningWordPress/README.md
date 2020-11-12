@@ -77,7 +77,7 @@ Post Formats is a ***theme*** feature.
 # WordPress widgets
 A widget is simply a self contained chunk of content that usually has a very specific purpose that gets displayed on a website.
 
-For example a lot of websites have a sidebar, and in that side bar you may see an area named "xxx" and a list of links, that is a "xxx"-widget.
+For example a lot of websites have a sidebar, and in that sidebar you may see an area named "xxx" and a list of links, that is a "xxx"-widget.
 
 The great thing about WordPress is that you can add widget locations wherever you want very easily.
 
@@ -185,3 +185,17 @@ if(have_posts()) :
  - [WP_Customize_Cropped_Image_Control()](https://developer.wordpress.org/reference/classes/wp_customize_cropped_image_control/)
  - [wpautop()](https://developer.wordpress.org/reference/functions/wpautop/)
  - [wp_get_attachment_url()](https://developer.wordpress.org/reference/functions/wp_get_attachment_url/)
+ - [get_author_posts_url()](https://developer.wordpress.org/reference/functions/get_author_posts_url/)
+ - [get_the_author_meta()](https://developer.wordpress.org/reference/functions/get_the_author_meta/)
+ - [get_avatar()](https://developer.wordpress.org/reference/functions/get_avatar/)
+ - [WP_Query()](https://developer.wordpress.org/reference/classes/wp_query/)
+ - [have_posts()](https://developer.wordpress.org/reference/functions/have_posts/)
+ - [the_post()](https://developer.wordpress.org/reference/functions/the_post/)
+ - [the_permalink()](https://developer.wordpress.org/reference/functions/the_permalink/)
+ - [the_title()](https://developer.wordpress.org/reference/functions/the_title/)
+ - [wp_reset_postdata()](https://developer.wordpress.org/reference/functions/wp_reset_postdata/)
+ - [count_user_posts()](https://developer.wordpress.org/reference/functions/count_user_posts/)
+
+# User accounts in WordPress
+You can create as many users as you like for your WordPress website by under `Users` you can use `Add New` and create
+a user account based on their email address.
