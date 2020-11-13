@@ -199,3 +199,32 @@ if(have_posts()) :
 # User accounts in WordPress
 You can create as many users as you like for your WordPress website by under `Users` you can use `Add New` and create
 a user account based on their email address.
+
+# Pagination
+[Pagination](https://developer.wordpress.org/themes/functionality/pagination/) allows
+your user to browse back and forth through multiple pages of content.
+
+WordPress can use pagination when:
+
+- Viewing lists of posts when more posts exist than can fit one page.
+- Breaking up by manually using following tag `<!--nextpage-->`.
+
+When you are creating a theme you wanna to be sure add paginations support to any or all listing or results templates.
+
+When you are dealing with a page where the url defines which content should be queried, in situations like that
+adding pagination is easy. However what if you don't want to rely on the url to define what is getting queried from the database or
+in other words, what if you are using your custom queries within your own custom template? The WordPress pagination functions will still
+work but you would have to go some extra meters and provide more content to them, so that they get applicable by your own custom query and
+template, as seen below.
+
+```
+//First option without the custom query and template
+echo paginate_links();
+//Second option with the custom query and template
+echo paginate_links(array(
+  'total' => $aboutShows->max_num_pages
+));
+```
+
+When working with pagination on the most pages, you can do as we have done so far by using `paged` in for example `page-about-me.php`
+**line** 63. But if you need to work on pagination on static pages you would have to use `page` instead of `paged`.

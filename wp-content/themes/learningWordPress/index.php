@@ -4,7 +4,7 @@
 The loop is central and we are going to loop through all the different post and
 output them to our webpage
 */
-
+//This file controls the output of our posts
 //adding header to the layout
 get_header();
 ?>
@@ -25,6 +25,14 @@ so that our module can stay self contained and can easily be moved around-->
         */
         get_template_part('content', get_post_format()); //<--responsible for how the webpage is displayed
       endwhile;
+
+      //For pagination
+      //Option 1 for pagination
+      //previous_posts_link(); //goes a page backwards
+      //next_posts_link(); //goes a page forward
+      //Option 2 for pagination (more advanced)
+      echo paginate_links();
+
     else :
       echo '<p>No content found</p>';
     endif;
