@@ -195,6 +195,10 @@ if(have_posts()) :
  - [the_title()](https://developer.wordpress.org/reference/functions/the_title/)
  - [wp_reset_postdata()](https://developer.wordpress.org/reference/functions/wp_reset_postdata/)
  - [count_user_posts()](https://developer.wordpress.org/reference/functions/count_user_posts/)
+ - [paginate_links()](https://developer.wordpress.org/reference/functions/paginate_links/)
+ - [previous_posts_link()](https://developer.wordpress.org/reference/functions/previous_posts_link/)
+ - [next_posts_link()](https://developer.wordpress.org/reference/functions/next_posts_link/)
+ - [get_query_var()](https://developer.wordpress.org/reference/functions/get_query_var/)
 
 # User accounts in WordPress
 You can create as many users as you like for your WordPress website by under `Users` you can use `Add New` and create
@@ -227,4 +231,4 @@ echo paginate_links(array(
 ```
 
 When working with pagination on the most pages, you can do as we have done so far by using `paged` in for example `page-about-me.php`
-**line** 63. But if you need to work on pagination on static pages you would have to use `page` instead of `paged`.
+**line 63**. But if you need to work on pagination on static pages you would have to use `page` instead of `paged`.
