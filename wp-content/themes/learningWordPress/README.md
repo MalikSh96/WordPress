@@ -298,3 +298,6 @@ The functions/variables used in `create.js` so far is:
 - [JSON.stringify()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify)
 - [XMLHttpRequest.onreadystatechange](https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest/onreadystatechange)
 - [XMLHttpRequest.readyState](https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest/readyState)
+
+# About `delete.js`
+I followed this [tutorial](https://www.vandelaydesign.com/delete-a-wordpress-post-using-ajax/) if an explanation is needed.
