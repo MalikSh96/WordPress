@@ -13,8 +13,10 @@ if(quickAddButton){
     }
 
     let createPost = new  XMLHttpRequest();
+    const url = "http://localhost:8080/wordpress";
     ///wp-json/wp/v2 is the WordPress RESP API part of the url
-    createPost.open("POST", magicalData.siteUrl + "/wp-json/wp/v2/posts");
+    createPost.open("POST", url + "/wp-json/wp/v2/posts");
+    //createPost.open("POST", magicalData.siteUrl + "/wp-json/wp/v2/posts");
     /*
     To make sure only a signed in user can create a post we retrieve their code number
     */

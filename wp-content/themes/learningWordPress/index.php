@@ -17,6 +17,8 @@ so that our module can stay self contained and can easily be moved around-->
 <div class="site-content clearfix">
   <!--main column-->
   <div class="main-column">
+
+    <!--Add Post option part-->
     <?php if(current_user_can('administrator')) : ?>
     <div class="admin-quick-add">
       <h3>Quick Add Post</h3>
@@ -25,16 +27,35 @@ so that our module can stay self contained and can easily be moved around-->
       <button id="quick-add-button">Create Post</button>
     </div>
   <?php endif; ?>
+  <!--Add Post option part-->
 
     <?php
     if(have_posts()) :
-      while(have_posts()) : the_post();
+      while(have_posts()) : the_post(); ?>
+
+    <!--Delete option part-->
+    <!--https://www.vandelaydesign.com/delete-a-wordpress-post-using-ajax/-->
+    <?php if( current_user_can( 'delete_post' ) ) : ?>
+    <?php $nonce = wp_create_nonce('my_delete_post_nonce') ?>
+      <!--<button class="delete-btn">-->
+        <a href="<?php echo admin_url('admin-ajax.php?action=my_delete_post&id=' . get_the_ID() . '&nonce=' . $nonce ) ?>"
+          data-id="<?php the_ID() ?>" data-nonce="<?php echo $nonce ?>" class="delete-post"
+        >
+          Delete Post
+        </a>
+      <!--</button>-->
+    <?php endif ?>
+    <!--Delete option part-->
+
+    <?php
         /*
         Info: get_template_part('content', get_post_format());
         The 1st param which ^ tries to get is our content.php file.
         The 2nd param which ^^ it tries to get is our content-aside.php file from our theme folder.
         */
         get_template_part('content', get_post_format()); //<--responsible for how the webpage is displayed
+        ?>
+      <?php
       endwhile;
 
       //For pagination

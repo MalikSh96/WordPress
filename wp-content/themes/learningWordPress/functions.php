@@ -10,6 +10,10 @@ function learningWordPress_resources(){
     'nonce' => wp_create_nonce('wp_rest'),
     'siteurl' => get_site_url()
   ));
+
+  wp_enqueue_script('delete_js', get_template_directory_uri() . '/js/delete.js', NULL, 1.0, true);
+  wp_localize_script('delete_js', 'MyAjax', array('ajaxurl' => admin_url( 'admin-ajax.php')));
+
 }
 //we need to add the function so that it runs
 add_action('wp_enqueue_scripts', 'learningWordPress_resources');
@@ -275,4 +279,18 @@ function lwp_footer_callout($wp_customize) {
   )));
 }
 add_action('customize_register', 'lwp_footer_callout');
+
+//Delete post function
+function my_delete_post(){
+    $permission = check_ajax_referer( 'my_delete_post_nonce', 'nonce', false );
+    if( $permission == false ) {
+        echo 'error';
+    }
+    else {
+        wp_delete_post($_REQUEST['id']);
+        echo 'success';
+    }
+    die();
+}
+add_action('wp_ajax_my_delete_post', 'my_delete_post');
 ?>

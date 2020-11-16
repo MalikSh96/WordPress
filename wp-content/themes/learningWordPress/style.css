@@ -588,3 +588,21 @@ div.hd-search #s {
 	margin: 0 0 10px 0;
 	box-sizing: border-box;
 }
+
+/* Delete button style */
+.ddelete-post,
+.delete-post:link,
+.delete-post:visited{
+	margin-top: 12px;
+	display: inline-block;
+	background-color: #ff383e;
+	text-decoration: none;
+	color: #FFFFFF;
+	padding: 6px;
+	border-radius: 4px;
+	text-shadow: 1px 1px 0px rgba(0, 0, 0, .6);
+}
+
+.delete-post:hover {
+	background-color: #020000;
+}
