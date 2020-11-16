@@ -51,6 +51,8 @@ if(have_posts()) :
       <?php the_title(); ?>
     </h2>
     <?php the_content(); ?>
+    <button id="related-posts-btn">Load related blog posts</button>
+    <div id="related-posts-container">
   </article>
 <?php endwhile;
 else : echo '<p>No content found</p>';

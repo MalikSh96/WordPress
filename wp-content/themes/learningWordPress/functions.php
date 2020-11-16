@@ -2,6 +2,14 @@
 function learningWordPress_resources(){
   //represents css files or javascript files that we will need for our theme
   wp_enqueue_style('style', get_stylesheet_uri());
+  wp_enqueue_script('main_js', get_template_directory_uri() . '/js/main.js', NULL, 1.0, true);
+
+  wp_enqueue_script('create_js', get_template_directory_uri() . '/js/create.js', NULL, 1.0, true);
+  wp_localize_script('create_js', 'magicalData', array(
+    //We want the code for the currently signed in user
+    'nonce' => wp_create_nonce('wp_rest'),
+    'siteurl' => get_site_url()
+  ));
 }
 //we need to add the function so that it runs
 add_action('wp_enqueue_scripts', 'learningWordPress_resources');

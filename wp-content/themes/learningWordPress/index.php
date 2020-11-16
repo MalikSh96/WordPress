@@ -1,4 +1,6 @@
 <?php
+//THIS TEMPLATE FILE CONTAINS THE BLOG LISTING SCREEN
+
 //We are going to refer to the loop
 /*
 The loop is central and we are going to loop through all the different post and
@@ -15,9 +17,18 @@ so that our module can stay self contained and can easily be moved around-->
 <div class="site-content clearfix">
   <!--main column-->
   <div class="main-column">
+    <?php if(current_user_can('administrator')) : ?>
+    <div class="admin-quick-add">
+      <h3>Quick Add Post</h3>
+      <input type="text" name="title" placeholder="Title">
+      <textarea name="content" placeholder="Content"></textarea>
+      <button id="quick-add-button">Create Post</button>
+    </div>
+  <?php endif; ?>
+
     <?php
     if(have_posts()) :
-      while(have_posts()) : /*do something with the posts*/ the_post();
+      while(have_posts()) : the_post();
         /*
         Info: get_template_part('content', get_post_format());
         The 1st param which ^ tries to get is our content.php file.

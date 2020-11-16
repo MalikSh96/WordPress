@@ -24,12 +24,12 @@ We just assign the image to represent the given post/page.
 A featured image is a separate field from the main text of your post/page, which allows your theme to do very dynamic things.
 
 # WordPress Search functionality
-WordPress has an in built search form such as get_search_form().
+WordPress has an in built search form such as `get_search_form()`.
 
-If you don't have a custom file as our searchform.php WordPress will fall back to its default serach form code.
+If you don't have a custom file as our `searchform.php` WordPress will fall back to its default search form code.
 
-WordPress will automatically look in our theme folder for a file named search.php to output the search results, if you don't have
-a search.php WordPress will fall back and use index.php to output the search results.
+WordPress will automatically look in our theme folder for a file named `search.php` to output the search results, if you don't have
+a `search.php` WordPress will fall back and use `index.php` to output the search results.
 
 # Keeping your code D-R-Y
 Don't Repeat Yourself (coding wise).
@@ -38,18 +38,18 @@ In terms of how the webpage is displayed there is a similiarity on how items are
 all outputting the same.
 There is no need to have all that code repeated in our theme files.
 
-get_template_part() is an inbuild function which allows the code to be D-R-Y.
+`get_template_part()` is an inbuild function which allows the code to be D-R-Y.
 
 Read more about -> [get_template_part()](https://developer.wordpress.org/reference/functions/get_template_part/)
 
-For this part we modified our index.php and created a new file content.php which now contains the content we have
-that used to be in our index.php, archive.php, search.php and etc.
+For this part we modified our `index.php` and created a new file `content.php` which now contains the content we have
+that used to be in our `index.php`, `archive.php`, `search.php` and etc.
 
-get_template_part('content'); <-- this can now be a reused in other theme files.
+`get_template_part('content');` <-- this can now be a reused in other theme files.
 
-get_template_part('content'); makes WordPress look for our content.php file in the theme folder.
+`get_template_part('content');` makes WordPress look for our `content.php` file in the theme folder.
 
-With content.php all of our theme design code is in one central place and is not repeated throughout our theme files.
+With `content.php` all of our theme design code is in one central place and is not repeated throughout our theme files.
 Now if changes need to happen you will only need to change in one file instead of jumping from one file to another and so on.
 
 # Post format feature
@@ -84,7 +84,7 @@ The great thing about WordPress is that you can add widget locations wherever yo
 By default WordPress treats widget areas as a giant unordered list.
 
 # Functions.php
-Whenever we are enabling a feature or making something dynamic we will use this file, function.php.
+Whenever we are enabling a feature or making something dynamic we will use this file, `function.php`.
 
 # WP_Query
 Learning to take control f what is being fed to "the loop", loop through any set of posts at any time in any theme file.
@@ -111,7 +111,7 @@ if(have_posts()) :
 
  Read more about -> [WP_Query](https://developer.wordpress.org/reference/classes/wp_query/)
 
- # Customized theme
+# Customized theme
  Everything being done for this is dependent on a WordPress object named `$wp_customize`.
 
  In `functions.php` we will create a function named `learningWordPress_customize_register('$wp_customize')` which
@@ -174,7 +174,7 @@ if(have_posts()) :
  The different names given to the 3 of them `lwp_link_color`, `lwp_standard_colors` and `lwp_link_color_control` - *lwp* being
  short for *learning WordPress*.
 
- Read more about the functions being used here:
+ Read more about the **functions** being used here:
  - [$wp_customize->add_setting()](https://developer.wordpress.org/reference/classes/wp_customize_manager/add_setting/)
  - [$wp_customize->add_section()](https://developer.wordpress.org/reference/classes/wp_customize_manager/add_section/)
  - [$wp_customize->add_control()](https://developer.wordpress.org/reference/classes/wp_customize_manager/add_control/)
@@ -199,6 +199,10 @@ if(have_posts()) :
  - [previous_posts_link()](https://developer.wordpress.org/reference/functions/previous_posts_link/)
  - [next_posts_link()](https://developer.wordpress.org/reference/functions/next_posts_link/)
  - [get_query_var()](https://developer.wordpress.org/reference/functions/get_query_var/)
+ - [wp_enqueue_style()](https://developer.wordpress.org/reference/functions/wp_enqueue_style/)
+ - [wp_enqueue_script()](https://developer.wordpress.org/reference/functions/wp_enqueue_script/)
+ - [get_stylesheet_uri()](https://developer.wordpress.org/reference/functions/get_stylesheet_uri/)
+ - [get_template_directory_uri()](https://developer.wordpress.org/reference/functions/get_template_directory_uri/)
 
 # User accounts in WordPress
 You can create as many users as you like for your WordPress website by under `Users` you can use `Add New` and create
@@ -232,3 +236,65 @@ echo paginate_links(array(
 
 When working with pagination on the most pages, you can do as we have done so far by using `paged` in for example `page-about-me.php`
 **line 63**. But if you need to work on pagination on static pages you would have to use `page` instead of `paged`.
+
+# WordPress REST API
+A REST API is a collection of JSON endpoints or url's.
+
+The REST API makes CRUD operations available from anywhere.
+
+*CRUD* -> Create, read, update, delete.
+
+# About `main.js`
+`main.js` is our javascript file which in this project is used to make `rest api` calls using `ajax`.
+
+```
+function createHTML(postsData){
+  /*
+  We will loop through the raw JSON data to create an html string and then we will
+  add that string into to the empty container div in page-contact-us.php
+  */
+  let ourHTMLString = '';
+  for(i = 0; i < postsData.length; i++){
+    ourHTMLString += '<h2>' + postsData[i].title.rendered + '</h2>';
+    ourHTMLString += postsData[i].content.rendered; //<-- gives the paragraph of text (the body text)
+  }
+  relatedPostsContainer.innerHTML = ourHTMLString;
+}
+
+```
+The function `createHTML(postsData)` is used to handle the data we get back from our request call, and since
+we are working with a request that returns multiple data (array) we loop through each data returned using our `for` loop
+to append each data so that it can come back correct and look nice.
+
+We access each data that gets returned by accessing the json data by the following way `postsData[i].title.rendered` or
+`postsData[i].content.rendered` where the variable `i` is the current accessed data.
+
+On top of that we are working with **AJAX** and you can read about it [here](https://developer.mozilla.org/en-US/docs/Web/Guide/AJAX/Getting_Started).
+
+The functions/variables used in `main.js` so far is:
+
+- [document.getElementById()](https://developer.mozilla.org/en-US/docs/Web/API/Document/getElementById)
+- [target.addEventListener()](https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener)]
+- [target.remove()](https://developer.mozilla.org/en-US/docs/Web/API/ChildNode/remove)
+- [element.innerHTML](https://developer.mozilla.org/en-US/docs/Web/API/Element/innerHTML)
+- [XMLHttpRequest()](https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest)
+- [XMLHttpRequest.open()](https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest/open)
+- [XMLHttpRequest.onload](https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequestEventTarget/onload)
+- [XMLHttpRequest.status](https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest/status)
+- [XMLHttpRequest.onerror](https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequestEventTarget/onerror)
+- [XMLHttpRequest.send()](https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest/send)
+- [Arrow functions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions)
+- **JavaScript** [functions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions)
+
+When [**not**](https://www.javascripttutorial.net/es6/when-you-should-not-use-arrow-functions/) to use *arrow functions*.
+
+# About `create.js`
+The `create.js` file is used to post, simply put.
+
+The functions/variables used in `create.js` so far is:
+
+- [document.querySelector()](https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelector)
+- [XMLHttpRequest.setRequestHeader()](https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest/setRequestHeader)
+- [JSON.stringify()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify)
+- [XMLHttpRequest.onreadystatechange](https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest/onreadystatechange)
+- [XMLHttpRequest.readyState](https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest/readyState)
