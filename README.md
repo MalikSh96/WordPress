@@ -1,1 +1,1 @@
-# LearningWordPress
+# WordPress
